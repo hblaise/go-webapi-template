@@ -33,8 +33,6 @@ type BaseResponse struct {
 }
 
 func login(c echo.Context) error {
-	//username := c.FormValue("username")
-	//password := c.FormValue("password")
 	loginDTO := new(LoginDTO)
 
 	er := c.Bind(loginDTO) // bind the structure with the context body
@@ -67,19 +65,10 @@ func login(c echo.Context) error {
 		return err
 	}
 
-	/*return c.JSON(http.StatusOK, map[string]string{
-		"token": t,
-	})*/
-
 	var messageBag = []MessageBag{}
 
 	/*messageBag = append(messageBag, MessageBag{
 		Message: "egy üzi",
-		Type:    "error",
-	})*/
-
-	/*messageBag = append(messageBag,MessageBag{
-		Message: "második üzi",
 		Type:    "error",
 	})*/
 
