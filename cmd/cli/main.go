@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"sort"
@@ -16,6 +17,7 @@ func main() {
 				Aliases: []string{"m"},
 				Usage:   "Run database migrations",
 				Action: func(c *cli.Context) error {
+					fmt.Println("Running migrations...")
 					return nil
 				},
 			},
@@ -24,6 +26,7 @@ func main() {
 				Aliases: []string{"i"},
 				Usage:   "Import data",
 				Action: func(c *cli.Context) error {
+					fmt.Println("Running import...")
 					return nil
 				},
 			},
