@@ -12,15 +12,31 @@ import (
 func main() {
 	app := &cli.App{
 		Commands: []*cli.Command{
+			//Migrate command example with sub commands.
 			{
 				Name:    "migrate",
 				Aliases: []string{"m"},
 				Usage:   "Run database migrations",
-				Action: func(c *cli.Context) error {
-					fmt.Println("Running migrations...")
-					return nil
+				Subcommands: []*cli.Command{
+					{
+						Name:  "up",
+						Usage: "Run migrations.",
+						Action: func(c *cli.Context) error {
+							fmt.Println("Running migrations...")
+							return nil
+						},
+					},
+					{
+						Name:  "down",
+						Usage: "Revert migrations.",
+						Action: func(c *cli.Context) error {
+							fmt.Println("Reverting migrations...")
+							return nil
+						},
+					},
 				},
 			},
+			//Import command example.
 			{
 				Name:    "import",
 				Aliases: []string{"i"},
