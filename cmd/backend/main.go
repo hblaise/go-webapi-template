@@ -72,11 +72,11 @@ func login(c echo.Context) error {
 		Type:    "error",
 	})*/
 
-	return c.JSON(http.StatusOK, BaseResponse{
+	return c.JSON(http.StatusOK, &BaseResponse{
 		Success:    true,
 		Message:    "Sikeres művelet",
 		MessageBag: messageBag,
-		Data: LoginResponse{
+		Data: &LoginResponse{
 			Username: loginDTO.Username,
 			Password: loginDTO.Password,
 			Token:    t,
@@ -118,5 +118,5 @@ func main() {
 	r.Use(middleware.JWT([]byte("secret")))
 	r.GET("", restricted)
 
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":11323"))
 }
